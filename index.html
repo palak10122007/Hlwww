@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>helloooo</title>
+
+<meta property="og:title" content="pleezzz tap this!!" />
+<meta property="og:description" content= once again hpiee b'day!" />
+<meta property="og:image" content="https://i.ibb.co/4n2LL9VW/IMG-20260131-144637.jpg" />
+<meta property="og:type" content="website" />
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  font-weight:600;
+  height:100vh;
+  overflow:hidden;
+}
+
+.page{
+  display:none;
+  height:100vh;
+  text-align:center;
+  color:white;
+  padding:20px;
+  background-size:cover;
+  background-position:center;
+}
+
+#page1, #page2{
+  background:url('https://i.ibb.co/6cPhRLWd/IMG-20260202-194427.jpg')no-repeat center/cover;
+}
+
+#page3{
+  background:url('https://i.ibb.co/gZ6Jnx4n/IMG-20260202-165902-386.jpg') no-repeat center/cover;
+}
+
+.active{ display:block; }
+
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.zoom-in{
+  animation: zoomIn 1.5s forwards;
+}
+
+@keyframes zoomIn{
+  from{ transform:translate(-50%,-50%) scale(0.5); opacity:0; }
+  to{ transform:translate(-50%,-50%) scale(1); opacity:1; }
+}
+
+button{
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  background:#ff4f8b;
+  color:white;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.text{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.collage-img{
+  width:90%;
+  max-width:350px;
+  border-radius:15px;
+}
+
+.wish-text{
+  margin-top:20px;
+  font-size:18px;
+  font-weight:600;
+  line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="center zoom-in">
+    <img src="https://i.ibb.co/vns0dMc/sticker.png" width="220"><br>
+    <div class="text">Please tap this!!</div>
+    <button onclick="nextPage(2)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="center zoom-in">
+    <img id="cake" src="https://i.ibb.co/39cZdCSP/cake.png" width="260"><br>
+    <div class="text">Blow the candles ⭐</div>
+    <button onclick="blow()">Blow</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="center" style="display:flex;flex-direction:column;align-items:center;">
+    <img src="https://i.ibb.co/4n2LL9VW/IMG-20260131-144637.jpg" class="collage-img">
+    <p class="wish-text">
+      Wish uhh a very very happiiiiiiest b'dayy💌<br>
+      May God always bless uh !!<br>
+      Stay mastikhor as u are there's no need to change🧿<br>
+       or baki to sab ok h jiiii🤧👍🏻<br>
+             
+    </p>
+  </div>
+</div>
+
+<script>
+function nextPage(n){
+  document.querySelector('.active').classList.remove('active');
+  document.getElementById('page'+n).classList.add('active');
+}
+
+function blow(){
+  document.getElementById('cake').style.opacity="0.6";
+  setTimeout(()=>nextPage(3),1500);
+}
+</script>
+
+</body>
+</html>
