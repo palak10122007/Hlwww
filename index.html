@@ -8,34 +8,45 @@
 <meta property="og:description" content= "once again hpiee b'day!" />
 <meta property="og:image" content="https://i.ibb.co/vns0dMc/sticker.png" />
 <meta property="og:type" content="website" />
-
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  font-weight:600;
-  height:100vh;
-  overflow:hidden;
+/* ... baaki sab same rahega, bas ye hissa update kar ... */
+
+.page {
+  display: none;
+  height: 100vh;
+  width: 100vw; /* Pura screen cover karne ke liye */
+  text-align: center;
+  color: white;
+  padding: 20px;
+  background-color: #000; /* Typo fixed: background-color */
+  box-sizing: border-box;
 }
 
-.page{
-  display:none;
-  height:100vh;
-  text-align:center;
-  color:white;
-  padding:20px;
-  background-size:cover;
-  background-position:center;
-  background-color: black;
+#page1, #page2 {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+              url('https://i.ibb.co/6cPhRLWd/IMG-20260202-194427.jpg') no-repeat center center/cover;
 }
 
-#page1, #page2{
-  background:url('https://i.ibb.co/6cPhRLWd/IMG-20260202-194427.jpg')no-repeat center/cover;
+#page3 {
+  /* Maine url ko clean kiya hai aur background-image property use ki hai */
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                    url('https://i.ibb.co/gZ6Jnx4n/IMG-20260202-165902-386.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none; /* Default hidden */
 }
 
-#page3{
-  background: url('https://i.ibb.co/gZ6Jnx4n/IMG-20260202-165902-386.jpg') no-repeat center/cover;
+/* Jab active ho tab dikhe */
+.page.active { 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* ... baki button aur text ka CSS ... */
+</style>
 
 .active{ display:block; }
 
