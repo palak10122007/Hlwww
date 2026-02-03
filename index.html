@@ -8,140 +8,127 @@
 <meta property="og:description" content= "once again hpiee b'day!" />
 <meta property="og:image" content="https://i.ibb.co/vns0dMc/sticker.png" />
 <meta property="og:type" content="website" />
+
 <style>
-/* ... baaki sab same rahega, bas ye hissa update kar ... */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    overflow: hidden;
+  }
 
-.page {
-  display: none;
-  height: 100vh;
-  width: 100vw; /* Pura screen cover karne ke liye */
-  text-align: center;
-  color: white;
-  padding: 20px;
-  background-color: #000; /* Typo fixed: background-color */
-  box-sizing: border-box;
-}
+  .page {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
 
-#page1, #page2 {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-              url('https://i.ibb.co/6cPhRLWd/IMG-20260202-194427.jpg') no-repeat center center/cover;
-}
+  /* Page 1 & 2 Background */
+  #page1, #page2 {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                      url('https://i.ibb.co/6cPhRLWd/IMG-20260202-194427.jpg');
+  }
 
-#page3 {
-  /* Maine url ko clean kiya hai aur background-image property use ki hai */
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                    url('https://i.ibb.co/gZ6Jnx4n/IMG-20260202-165902-386.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: none; /* Default hidden */
-}
+  /* Page 3 Background - Fixed URL & Display */
+  #page3 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('https://i.ibb.co/gZ6Jnx4n/IMG-20260202-165902-386.jpg');
+  }
 
-/* Jab active ho tab dikhe */
-.page.active { 
-  display: flex; 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  .active { 
+    display: flex !important; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-/* ... baki button aur text ka CSS ... */
-</style>
+  .zoom-in {
+    animation: zoomIn 1s ease-out forwards;
+  }
 
-.active{ display:block; }
+  @keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
-.center{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
+  button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4f8b;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(255, 79, 139, 0.4);
+  }
 
-.zoom-in{
-  animation: zoomIn 1.5s forwards;
-}
+  .text { margin-top: 20px; font-size: 22px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+  
+  .collage-img {
+    width: 85%;
+    max-width: 320px;
+    border: 4px solid white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
 
-@keyframes zoomIn{
-  from{ transform:translate(-50%,-50%) scale(0.5); opacity:0; }
-  to{ transform:translate(-50%,-50%) scale(1); opacity:1; }
-}
-
-button{
-  padding:12px 30px;
-  border:none;
-  border-radius:25px;
-  background:#ff4f8b;
-  color:white;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  margin-top:20px;
-}
-
-.text{
-  margin-top:20px;
-  font-size:20px;
-  font-weight:700;
-}
-
-.collage-img{
-  width:90%;
-  max-width:350px;
-  border-radius:15px;
-}
-
-.wish-text{
-  margin-top:20px;
-  font-size:18px;
-  font-weight:600;
-  line-height:1.5;
-}
+  .wish-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    padding: 0 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
 </style>
 </head>
-
 <body>
 
-<!-- PAGE 1 -->
 <div class="page active" id="page1">
-  <div class="center zoom-in">
-    <img src="https://i.ibb.co/vns0dMc/sticker.png" width="220"><br>
+  <div class="zoom-in">
+    <img src="https://i.ibb.co/vns0dMc/sticker.png" width="200">
     <div class="text">Please tap this!!</div>
     <button onclick="nextPage(2)">Next</button>
   </div>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page" id="page2">
-  <div class="center zoom-in">
-    <img id="cake" src="https://i.ibb.co/39cZdCSP/cake.png" width="260"><br>
+  <div class="zoom-in">
+    <img id="cake" src="https://i.ibb.co/39cZdCSP/cake.png" width="240">
     <div class="text">Blow the candles ⭐</div>
     <button onclick="blow()">Blow</button>
   </div>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="page3">
-  <div class="center" style="display:flex;flex-direction:column;align-items:center;">
+  <div class="zoom-in">
     <img src="https://i.ibb.co/4n2LL9VW/IMG-20260131-144637.jpg" class="collage-img">
     <p class="wish-text">
-      Wish uhh a very very happiiiiiiest b'dayy💌<br>
+      Wish uhh a very very happiiiiiiest b'dayy 💌<br>
       May God always bless uh !!<br>
-      Stay mastikhor as u are there's no need to change🧿<br>
-       or baki to sab ok h jiiii🤧👍🏻<br>
-             
+      Stay mastikhor as u are there's no need to change 🧿<br>
+      or baki to sab ok h jiiii 🤧👍🏻
     </p>
   </div>
 </div>
 
 <script>
 function nextPage(n){
-  document.querySelector('.active').classList.remove('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page'+n).classList.add('active');
 }
 
 function blow(){
-  document.getElementById('cake').style.opacity="0.6";
-  setTimeout(()=>nextPage(3),1500);
+  document.getElementById('cake').style.transition = "opacity 1s";
+  document.getElementById('cake').style.opacity = "0.4";
+  setTimeout(() => nextPage(3), 1200);
 }
 </script>
 
